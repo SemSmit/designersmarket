@@ -1,0 +1,35 @@
+create profile with 1:1 relationship with user .OneToOneField(user)
+
+
+
+Order:
+-buyer = profile.ForeignKey()     
+-request = models.Charfield()
+-date_created = models.GETTIME OR SOMETHING()
+-graphic_type   (icon/poster/logo)
+-poster_size 
+-deadline
+
+Profile:
+-user.OneToOneField()
+-role.ForeignKey(role) (designer/buyer)
+
+Role:
+-role (designer/buyer/admin)
+
+Quotes:
+-order.OneToOneField()
+-price
+-status (pending/accepted/rejected)
+-designer = profile.ForeignKey
+-delivered = boolean
+
+
+CompletedWorks:
+-designer = profile.ForeignKey()
+-price =
+-mediaURL =
+-review
+-buyer = profile.ForeignKey
+
+https://docs.djangoproject.com/en/2.2/ref/models/fields/ !!!!!
