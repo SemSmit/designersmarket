@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.contrib import messages
+from django.urls import reverse
 from .forms import RoleForm
 
 # Create your views here.
@@ -8,7 +10,9 @@ def requestview(request):
         role_form = RoleForm(request.POST)
         if role_form.is_valid():
             role_form.save()
-    
+            
+            messages.success(request, "You have successfully registered")
+            return redirect(reverse('requestview'))
     else:
         """A view that displays the request page"""
         role_form = RoleForm()
