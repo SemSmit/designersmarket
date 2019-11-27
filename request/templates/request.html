@@ -2,4 +2,12 @@
 
 {% block content %}
     <h1>this is request.html</h1>
+    <form method="post" action="{% url 'requestview' %}">
+        <fieldset class="form-group">
+            <legend>Why are you using this site?</legend>
+            {% csrf_token %}
+            {{  role_form | as_bootstrap }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
 {% endblock %}
