@@ -58,6 +58,7 @@ def register(request):
         role_form = RoleForm(request.POST)
         if user_form.is_valid():
             user_form.save()
+            role_form.save()
 
             user = auth.authenticate(request.POST.get('email'),
                                      password=request.POST.get('password1'))
