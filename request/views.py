@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
 from .forms import RoleForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def requestview(request):
     """A view that submits the role form"""
     if request.method == 'POST':
@@ -19,3 +21,4 @@ def requestview(request):
         
         args = {'role_form': role_form,}
         return render(request, "request.html", args)
+        
