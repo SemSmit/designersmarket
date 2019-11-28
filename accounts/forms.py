@@ -1,8 +1,14 @@
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from .models import UserProfile
 
+class ProfileForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['role']
 
 class UserLoginForm(forms.Form):
     username_or_email = forms.CharField()
